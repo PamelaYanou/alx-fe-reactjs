@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import RegistrationForm from './RegistrationForm'
 import React from 'react';
+import FormikForm from './Components/formikForm'
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <h2>Controlled Component</h2>
             <RegistrationForm />
             <h2>Formik Form</h2>
-            
+            <FormikForm/>
         </div>
     );
 }
