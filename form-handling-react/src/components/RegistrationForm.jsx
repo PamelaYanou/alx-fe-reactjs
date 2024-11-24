@@ -9,6 +9,9 @@ const RegistrationForm = () => {
 
   const [error, setError] = useState("");
 
+ 
+  const { username, email, password } = formValues;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({
@@ -19,7 +22,6 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, email, password } = formValues;
 
     
     if (!username || !email || !password) {
@@ -41,8 +43,8 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formValues.username} 
-          onChange={handleChange} 
+          value={username} 
+          onChange={handleChange}
         />
       </div>
       <div>
@@ -50,8 +52,8 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formValues.email} 
-          onChange={handleChange} 
+          value={email} 
+          onChange={handleChange}
         />
       </div>
       <div>
@@ -59,8 +61,8 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formValues.password} 
-          onChange={handleChange} 
+          value={password} 
+          onChange={handleChange}
         />
       </div>
       <button type="submit">Register</button>
