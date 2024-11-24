@@ -10,19 +10,23 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  const { data, isLoading, isError, error, refetch } = useQuery(
+  const { data, isLoading, isError, error, refetch, isFetching } = useQuery(
     "posts",
     fetchPosts,
     {
-      staleTime: 1000 * 60 * 5, // Cache data for 5 minutes
-      refetchOnWindowFocus: false, // Prevent refetching on window focus
+      staleTime: 1000 * 60 * 5, 
+      cacheTime: 1000 * 60 * 10, 
+      refetchOnWindowFocus: false, 
+      keepPreviousData: true, 
     }
   );
 
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
+  
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
@@ -31,6 +35,7 @@ const PostsComponent = () => {
     <div>
       <h2>Posts</h2>
       <button onClick={() => refetch()}>Refetch Posts</button>
+      {isFetching && <p>Updating data...</p>} {}
       <ul>
         {data.map((post) => (
           <li key={post.id}>
