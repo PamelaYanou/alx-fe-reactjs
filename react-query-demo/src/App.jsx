@@ -1,7 +1,7 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import PostsComponent from "./components/PostsComponent";
-
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const queryClient = new QueryClient();
 
 function App() {
@@ -9,8 +9,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <h1>React Query Demo</h1>
       <PostsComponent />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
 
 export default App;
+
+
+
