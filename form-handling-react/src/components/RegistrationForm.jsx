@@ -7,10 +7,9 @@ const RegistrationForm = () => {
     password: "",
   });
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
- 
-  const { username, email, password } = formValues;
+  const { username, email, password } = formValues; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,50 +19,65 @@ const RegistrationForm = () => {
     }));
   };
 
+  const validateFields = () => {
+    const newErrors = {};
+
+    if (!username) {
+      newErrors.username = "Username is required";
+    }
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; 
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
-    if (!username || !email || !password) {
-      setError("All fields are required!");
-      return;
+    if (validateFields()) {
+      console.log("Form Submitted:", formValues);
+      setFormValues({ username: "", email: "", password: "" }); 
+      setErrors({}); 
     }
-
-    console.log("Form Submitted:", formValues);
-    setError("");
-    setFormValues({ username: "", email: "", password: "" }); 
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>User Registration (Controlled Components)</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
       <div>
         <label>Username:</label>
         <input
           type="text"
           name="username"
-          value={username} 
+          value={username}
           onChange={handleChange}
         />
+        {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
       </div>
       <div>
         <label>Email:</label>
         <input
           type="email"
           name="email"
-          value={email} 
+          value={email}
           onChange={handleChange}
         />
+        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
       </div>
       <div>
         <label>Password:</label>
         <input
           type="password"
           name="password"
-          value={password} 
+          value={password}
           onChange={handleChange}
         />
+        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
       </div>
       <button type="submit">Register</button>
     </form>
