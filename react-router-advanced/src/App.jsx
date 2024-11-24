@@ -24,6 +24,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/post/:postId" element={<Post />} />
         <Route path="/" element={<Home />} />
+        
         <Route
           path="/profile/*"
           element={
@@ -31,8 +32,10 @@ const App = () => {
               <Profile />
             </ProtectedRoute>
           }
-        />     
+        />
         <Route path="/blog/:id" element={<BlogPost />} /> {}
+           
+              
       </Routes>
     </Router>
   );
