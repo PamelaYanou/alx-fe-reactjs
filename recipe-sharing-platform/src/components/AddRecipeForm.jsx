@@ -9,14 +9,16 @@ export default function AddRecipeForm() {
 
   const [errors, setErrors] = useState({});
 
+ 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; 
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value, 
     }));
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
@@ -29,6 +31,7 @@ export default function AddRecipeForm() {
     }
   };
 
+ 
   const validateForm = () => {
     const errors = {};
     if (!formData.title) errors.title = "Title is required.";
@@ -61,7 +64,7 @@ export default function AddRecipeForm() {
             id="title"
             name="title"
             value={formData.title}
-            onChange={handleChange}
+            onChange={handleChange} 
             className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.title && (
@@ -80,7 +83,7 @@ export default function AddRecipeForm() {
             id="ingredients"
             name="ingredients"
             value={formData.ingredients}
-            onChange={handleChange}
+            onChange={handleChange} // target.value captured here
             rows="4"
             className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
@@ -100,7 +103,7 @@ export default function AddRecipeForm() {
             id="steps"
             name="steps"
             value={formData.steps}
-            onChange={handleChange}
+            onChange={handleChange} 
             rows="6"
             className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
