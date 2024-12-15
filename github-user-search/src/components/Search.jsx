@@ -25,7 +25,7 @@ const Search = () => {
         setUser(data); // Set user data if API call is successful
       }
     } catch (err) {
-      setError('Looks like we can’t find the user'); // Display error message
+      setError("Looks like we can't find the user"); // Display error message
     } finally {
       setLoading(false); // End loading state
     }
