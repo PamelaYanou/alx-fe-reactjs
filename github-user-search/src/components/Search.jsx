@@ -19,7 +19,7 @@ const Search = () => {
     setUser(null); // Clear previous search result
 
     try {
-    
+      // Fetch user data from GitHub API
       const data = await fetchUserData(username);
       if (data) {
         setUser(data); // Set user data if API call is successful
@@ -49,9 +49,9 @@ const Search = () => {
       
       {user && !loading && (          {/* Display user info if available */}
         <div>
-          <h3>{user.name || 'No Name Available'}</h3> {/* Default text for name */}
+          <h3>{user.login || 'No Login Available'}</h3> {/* Display GitHub username */}
           <p>{user.bio || 'No Bio Available'}</p> {/* Default text for bio */}
-          <img src={user.avatar_url} alt={user.name} width="100" />
+          <img src={user.avatar_url} alt={user.login} width="100" />
           <a href={user.html_url} target="_blank" rel="noopener noreferrer">
             Visit GitHub Profile
           </a>
