@@ -1,15 +1,29 @@
 
-import axios from "axios";
+i// src/services/githubService.js
+import axios from 'axios';
 
-const fetchUserData = async (username) => {
+const GITHUB_API_URL = 'https://api.github.com/search/users';
+
+export const fetchAdvancedUserData = async (username, location, minRepos, page) => {
+  let query = `${username ? `in:login ${username}` : ''}`;
+  
+  if (location) {
+    query += ` location:${location}`;
+  }
+
+  
+  if (minRepos) {
+    query += ` repos:>=${minRepos}`;
+  }
+
+  
+  const perPage = 10;
+  const url = `${GITHUB_API_URL}?q=${query}&page=${page}&per_page=${perPage}`;
+
   try {
-    const response = await axios.get(
-      `https://api.github.com/users/${username}`
-    );
-    return response.data;
+    const response = await axios.get(url);
+    return response.data;  
   } catch (error) {
-    throw new Error("User not found");
+    throw error;
   }
 };
-
-export { fetchUserData };
