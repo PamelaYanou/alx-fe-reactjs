@@ -11,13 +11,7 @@
       "50g Parmesan cheese",
       "Black pepper"
     ],
-    "steps": [
-      "Cook spaghetti in boiling water until al dente.",
-      "Fry the pancetta in a pan until crispy.",
-      "Whisk eggs with grated Parmesan and black pepper.",
-      "Drain spaghetti and mix with pancetta and egg mixture.",
-      "Serve immediately with extra Parmesan."
-    ]
+    "instructions": "1. Cook spaghetti in boiling water until al dente.\n2. Fry the pancetta in a pan until crispy.\n3. Whisk eggs with grated Parmesan and black pepper.\n4. Drain spaghetti and mix with pancetta and egg mixture.\n5. Serve immediately with extra Parmesan."
   },
   {
     "id": 2,
@@ -32,12 +26,6 @@
       "400g canned tomatoes",
       "200ml cream"
     ],
-    "steps": [
-      "Marinate chicken in yogurt and spices for 2 hours.",
-      "Grill the chicken until cooked through.",
-      "Fry onion until golden, then add canned tomatoes and cook for 10 minutes.",
-      "Blend the sauce until smooth and stir in cream.",
-      "Add grilled chicken and simmer for 10 minutes before serving."
-    ]
+    "instructions": "1. Marinate chicken in yogurt and spices for 2 hours.\n2. Grill the chicken until cooked through.\n3. Fry onion until golden, then add canned tomatoes and cook for 10 minutes.\n4. Blend the sauce until smooth and stir in cream.\n5. Add grilled chicken and simmer for 10 minutes before serving."
   }
 ]
