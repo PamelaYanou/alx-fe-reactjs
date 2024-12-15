@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import Search from "./components/Search";
+
 const App = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
@@ -36,6 +38,10 @@ const App = () => {
           </a>
         </div>
       )}
+      <div className="App">
+        <h1>GitHub User Search</h1>
+        <Search />
+      </div>
     </div>
   );
 };
